@@ -33,7 +33,6 @@ class OrderController extends Controller
         return response()->json($order);
     }
 
-
     public function store(Request $request)
     {
         $this->validate($request, [

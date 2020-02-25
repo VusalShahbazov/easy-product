@@ -18,7 +18,7 @@ Route::group(['prefix' => 'categories'] , function ($r){
     Route::delete('/{id}','CategoryController@delete')->where('id' , '[0-9]+');
 });
 
-Route::group(['middleware'=>'auth:api','prefix' => 'products'] , function ($r){
+Route::group(['middleware'=>'auth:api','prefix' => 'orders  '] , function ($r){
     Route::get('/','OrderController@index');
     Route::get('/{id}','OrderController@show')->where('id' , '[0-9]+');
     Route::post('/','OrderController@store');

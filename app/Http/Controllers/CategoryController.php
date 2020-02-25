@@ -17,7 +17,9 @@ class CategoryController extends Controller
         $this->validate($request, [
             'name' => ['required', 'string', 'min:2', 'max:255']
         ]);
-        $category = Category::create();
+        $category = Category::create(
+            $request->only('name')
+        );
         return response()->json($category);
     }
 
@@ -32,11 +34,8 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        $this->validate($request, [
-            'name' => ['required', 'string', 'min:2', 'max:255']
-        ]);
         $category = Category::findOrFail($id);
         return response()->json($category);
     }

@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -25,6 +27,15 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
+    public function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json($exception->errors() , Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+    public function invalid($request, ValidationException $exception)
+    {
+        return response()->json($exception->errors() , Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
 
     /**
      * Report or log an exception.

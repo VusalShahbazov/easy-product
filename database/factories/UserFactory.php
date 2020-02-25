@@ -19,8 +19,8 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => 'Vusal',
-        'email' => 'vusa.013@gmail.com',
+        'name' => $faker->name,
+        'email' => $faker->email,
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
     ];
 });

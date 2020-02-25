@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth:api' , 'admin'])->only(['store' , 'update' , 'delete']);
+    }
+
     public function index()
     {
         return response()->json(Category::all());

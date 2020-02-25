@@ -2,6 +2,9 @@
 //use Illuminate\Http\Request;
 
 
+
+
+
 Route::group(['prefix' => 'products'] , function ($r){
     Route::get('/','ProductController@index');
     Route::get('/{id}','ProductController@show')->where('id' , '[0-9]+');

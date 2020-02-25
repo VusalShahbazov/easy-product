@@ -8,9 +8,10 @@ class Order extends Model
 {
     const PerPage = 15;
 
-    protected $fillable = ['name' , 'phone' , 'email' , 'address' , 'product_id' , 'user_id'];
+    protected $fillable = ['name', 'phone', 'email', 'address', 'product_id', 'user_id'];
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo('App/Product');
     }
 }

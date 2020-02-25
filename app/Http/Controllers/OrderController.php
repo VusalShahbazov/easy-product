@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:api']);
+        $this->middleware(['admin'])->only(['index' , 'delete']);
+    }
+
     public function index(Request $request)
     {
         $this->validate($request, [
